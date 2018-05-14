@@ -1,0 +1,27 @@
+<table class="table" *ngIf="client">
+  <thead>
+    <tr>
+      <th scope="col">Avatar</th>
+      <th scope="col">Name</th> <!-- and job dets-->
+      <th scope="col">Contacts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr >
+      <td><img src="{{ client.general.avatar }}" alt=""></td>
+      <td>
+        <strong> {{ client.general.firstName }}</strong>
+        <br>
+        <small>{{ client.job.title }} - {{ client.job.company }}</small>
+      </td>
+      <td>
+        <span > {{ client.address.street }} </span>
+        <br>
+        <span > {{ client.address.city }} </span>
+        <br>
+        <span > {{ client.address.zipCode }} </span>
+        <br>
+        <span > {{ client.address.country }} </span>
+      </td>
+    </tr>
+    <tr>
