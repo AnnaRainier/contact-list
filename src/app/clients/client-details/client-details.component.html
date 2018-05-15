@@ -4,10 +4,11 @@
       <th scope="col">Avatar</th>
       <th scope="col">Name</th> <!-- and job dets-->
       <th scope="col">Contacts</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-    <tr >
+    <tr *ngIf="client.general">
       <td><img src="{{ client.general.avatar }}" alt=""></td>
       <td>
         <strong> {{ client.general.firstName }}</strong>
@@ -19,9 +20,29 @@
         <br>
         <span > {{ client.address.city }} </span>
         <br>
-        <span > {{ client.address.zipCode }} </span>
+        <span > {{ client.contact.phone }} </span>
         <br>
-        <span > {{ client.address.country }} </span>
+        <span > {{ client.contact.email }} </span>
       </td>
+      <td><button type="button" class="btn btn-info" (click)="clearCurrentClient(client)">X</button></td>
     </tr>
-    <tr>
+    <tr *ngIf="!client.general">
+      <td><img src="{{ client.avatar }}" alt=""></td>
+      <td>
+        <strong> {{ client.firstName }}</strong>
+        <br>
+        <small>{{ client.title }} - {{ client.company }}</small>
+      </td>
+      <td>
+        <span > {{ client.street }} </span>
+        <br>
+        <span > {{ client.city }} </span>
+        <br>
+        <span > {{ client.phone }} </span>
+        <br>
+        <span > {{ client.email }} </span>
+      </td>
+      <td><button type="button" class="btn btn-info" (click)="clearCurrentClient(client)">X</button></td>
+    </tr>
+    </tbody>
+    </table>

@@ -13,4 +13,8 @@ export class ClientDetailsComponent implements OnInit {
   ngOnInit() {
   }
 
+  clearCurrentClient(client) {
+    this.client = undefined;
+  }
+
 }

@@ -1,4 +1,22 @@
-<table class="table">
+
+<input type="text" class="form-control form-control-lg" placeholder="type for search" [(ngModel)]="term">
+<table class="table" *ngIf="term">
+  <thead>
+    <tr>
+      <th scope="col">Avatar</th>
+      <th scope="col">Name</th>
+      <th scope="col">Job title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let client of searchedClients |filter:term" (click)=clientSelected(client)>
+      <td><img src="{{ client.avatar }}" alt="test" width="50px" height="50px"></td>
+      <td>{{ client.firstName }} </td>
+      <td>{{ client.title }} </td>
+    </tr>
+    </tbody>
+    </table>
+<table class="table" *ngIf="!term">
   <thead>
     <tr>
       <th scope="col">Avatar</th>
@@ -12,4 +30,6 @@
       <td>{{ client.general.firstName }} </td>
       <td>{{ client.job.title }} </td>
     </tr>
-    <tr>
+</tbody>
+</table>
+

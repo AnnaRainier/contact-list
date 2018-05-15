@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class ClientsService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
 
   getClients() {
+    return this.http.get('../../assets/clients.json');
+    /*
     let xhr = new XMLHttpRequest();
     xhr.open('GET', '../../assets/clients.json', false);
     xhr.send();
@@ -15,5 +18,7 @@ export class ClientsService {
     } else {
       return JSON.parse(xhr.responseText);
   }
+}
+*/
 }
 }
